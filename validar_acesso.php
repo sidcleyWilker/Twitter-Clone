@@ -14,7 +14,11 @@
 
     if ($resultado_id) {
     	$dados_usuario = mysqli_fetch_array($resultado_id);
-		var_dump($dados_usuario);
+		if(isset($dados_usuario['usuario'])){
+            echo 'usuário existe';
+        }else{
+            header('Location: index.php?erro=1');
+        }
     }else{
     	echo "Erro na consulta, por favor entre em contato com o adm do site";
     }
