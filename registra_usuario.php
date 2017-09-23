@@ -48,7 +48,7 @@
             $retorno_get .= "erro_email=1&";
         }
         header('Location: inscrevase.php?' . $retorno_get);
-        die();
+        die();//Para o script
     }
 
 

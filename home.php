@@ -18,7 +18,23 @@
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$('#btn_tweet').click(function(){
+
+					if($('#text_tweet').val().length > 0){
+
+						alert('Campo está preenchido');
+
+					}
+
+				});
+
+			});
+
+		</script>
 	</head>
 
 	<body>
@@ -66,10 +82,10 @@
 	    		<div class="panel panel-default">
 	    			<div class="panel-body">
 	    				<div class="input-group">
-	    					<input type="text" class="form-control" placeholder="O que está acontecendo ?" maxlength="140" name="">
+	    					<input type="text" id="text_tweet" class="form-control" placeholder="O que está acontecendo ?" maxlength="140" name="">
 
 	    					<span class="input-group-btn">
-	    						<button class="btn btn-default" type="button">Tweet</button>
+	    						<button id="btn_tweet" class="btn btn-default" type="button">Tweet</button>
 	    					</span>
 	    				</div>
 	    			</div>
