@@ -6,6 +6,9 @@
     $email = $_POST['email'];
     $senha = md5($_POST['senha']);
 
+    $usuario_existe = false;
+    $email_existe = false;
+
     $objDb = new Db();
     $link = $objDb->conecta_mysql();
 
@@ -16,9 +19,7 @@
         $dados_usuario = mysqli_fetch_array($resultado_id);
 
         if(isset($dados_usuario['usuario'])){
-            echo 'Usuário já cadastrado';
-        }else{
-            echo 'Usuário não cadastrado, ok, pode cadastrar';        
+            $usuario_existe = true;
         }
 
     }else{
@@ -32,15 +33,24 @@
         $dados_usuario = mysqli_fetch_array($resultado_id);
 
         if(isset($dados_usuario['email'])){
-            echo 'Email já cadastrado';
-        }else{
-            echo 'Email não cadastrado, ok, pode cadastrar';
+            $email_existe = true;
         }
     }else{
         echo 'Erro ao tentar localizar o registro de email';
     }
 
-    die();
+    if($usuario_existe || $email_existe){
+        $retorno_get = '';
+        if($usuario_existe){
+            $retorno_get .= "erro_usuario=1&";
+        }
+        if($email_existe){
+            $retorno_get .= "erro_email=1&";
+        }
+        header('Location: inscrevase.php?' . $retorno_get);
+        die();
+    }
+
 
     $sql = "INSERT INTO usuarios (usuario, email, senha) VALUES ('$usuario', '$email', '$senha')";
 
