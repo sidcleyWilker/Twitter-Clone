@@ -30,8 +30,9 @@
 							url: 'inclui_tweet.php',
 							method: 'POST',
 							data: $('#form_tweet').serialize(),
-							success: function(data){								
-								alert(data);
+							success: function(data){	
+								$("#texto_tweet").val('');							
+								alert("Tweet incluido");
 							}
 
 						});
