@@ -33,6 +33,7 @@
 							success: function(data){	
 								$("#texto_tweet").val('');							
 								alert("Tweet incluido");
+								atualizaTweet();
 							}
 
 						});
@@ -111,7 +112,7 @@
 
 	    			</div>
 	    		</div>
-	    		
+
 	    		<div id="tweets" class="list-group">
 	    			
 	    		</div>
