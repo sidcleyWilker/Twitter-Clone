@@ -36,11 +36,21 @@
 							}
 
 						});
-
 					}
-
 				});
 
+				function atualizaTweet(){
+					//carregar os tweets
+
+					$.ajax({
+						url: 'get_tweet.php',
+						success: function(data){
+							$('#tweets').html(data);
+						}
+					});
+				}
+
+				atualizaTweet();
 			});
 
 		</script>
@@ -100,6 +110,10 @@
 						</form>
 
 	    			</div>
+	    		</div>
+	    		
+	    		<div id="tweets" class="list-group">
+	    			
 	    		</div>
 	    	</div>
 
