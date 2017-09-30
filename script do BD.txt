@@ -14,3 +14,11 @@ CREATE TABLE tweet (
     data_inclusao datetime default CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
+
+CREATE TABLE usuarios_seguidores(
+	id_usuario_seguidor int not null PRIMARY KEY AUTO_INCREMENT,
+    id_usuario int NOT null,
+    seguindo_id_usuario int NOT null,
+    data_registro datetime default CURRENT_TIMESTAMP
+
+);

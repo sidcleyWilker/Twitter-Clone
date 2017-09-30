@@ -26,7 +26,7 @@
 
                 echo '<strong>' . $registro['usuario'] . '</strong> <small> - ' . $registro['email'] . ' </small>';
                 echo '<p class="list-group-item-text pull-right">';
-                    echo '<button type="button" class="btn btn-primary">Seguir</button>';                
+                    echo '<button type="button" class="btn btn-primary btn_seguir" data-id_usuario="'.$registro['id'].'">Seguir</button>';                
                 echo '</p>';
 
                 echo '<div class="clearfix"></div>';
